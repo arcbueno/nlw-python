@@ -1,7 +1,7 @@
 from typing import Dict
-from project.src.models.entities.attendee import Attendee
-from project.src.models.entities.event import Event
-from project.src.models.settings.connection import db_connection_handler
+from src.models.entities.attendee import Attendee
+from src.models.entities.event import Event
+from src.models.settings.connection import db_connection_handler
 from sqlalchemy.exc import IntegrityError, NoResultFound
 
 class AttendeesRepository:
