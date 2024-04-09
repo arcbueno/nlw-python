@@ -1,7 +1,8 @@
 
 from typing import Dict
-from project.src.models.entities.check_in import CheckIn
-from project.src.models.settings.connection import db_connection_handler
+import uuid
+from src.models.entities.check_in import CheckIn
+from src.models.settings.connection import db_connection_handler
 from sqlalchemy.exc import IntegrityError, NoResultFound
 
 class CheckInsRepository:
@@ -10,6 +11,7 @@ class CheckInsRepository:
             try:
                 check_in = (
                     CheckIn(
+                        id = str(uuid.uuid4()),
                         attendee_id = attendee_id,
                     )
                 )
@@ -18,8 +20,8 @@ class CheckInsRepository:
                 
                 return attendee_id
             
-            except IntegrityError:
-                raise Exception('CheckIn already done')
+            # except IntegrityError:
+            #     raise Exception('CheckIn already done')
             
             except Exception as exception:
                 database.session.rollback()

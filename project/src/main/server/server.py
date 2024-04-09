@@ -12,3 +12,6 @@ app.register_blueprint(event_route_bp)
 
 from src.main.routes.attendees_routes import attendee_route_bp
 app.register_blueprint(attendee_route_bp)
+
+from src.main.routes.check_in_routes import checkin_route_bp
+app.register_blueprint(checkin_route_bp)
