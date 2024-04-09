@@ -20,3 +20,11 @@ def get_attendee_by_id(attendee_id):
     http_response = attendee_handler.get_attendees_by_id(http_request=http_request)
      
     return jsonify(http_response.body), http_response.status_code
+
+@attendee_route_bp.route('/events/<event_id>/attendees', methods=['GET'])
+def get_attendees_by_event_id(event_id):
+    attendee_handler = AttendeeHandler()
+    http_request = HttpRequest(param= {'event_id': event_id}, )
+    http_response = attendee_handler.get_attendees_by_event_id(http_request=http_request)
+     
+    return jsonify(http_response.body), http_response.status_code
